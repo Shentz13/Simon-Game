@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HallOfFame index{% endblock %}
+
+{% block body %}
+    <h1>HallOfFame index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pseudo</th>
+                <th>Score</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hall_of_fame in hall_of_fames %}
+            <tr>
+                <td>{{ hall_of_fame.id }}</td>
+                <td>{{ hall_of_fame.pseudo }}</td>
+                <td>{{ hall_of_fame.score }}</td>
+                <td>{{ hall_of_fame.time }}</td>
+                <td>{{ hall_of_fame.date ? hall_of_fame.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('hall_of_fame_show', {'id': hall_of_fame.id}) }}">show</a>
+                    <a href="{{ path('hall_of_fame_edit', {'id': hall_of_fame.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hall_of_fame_new') }}">Create new</a>
+{% endblock %}

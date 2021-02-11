@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New HallOfFame{% endblock %}
+
+{% block body %}
+    <h1>Create new HallOfFame</h1>
+
+    {{ include('hall_of_fame/_form.html.twig') }}
+
+    <a href="{{ path('hall_of_fame_index') }}">back to list</a>
+{% endblock %}
