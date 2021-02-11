@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HallOfFame{% endblock %}
+
+{% block body %}
+    <h1>HallOfFame</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ hall_of_fame.id }}</td>
+            </tr>
+            <tr>
+                <th>Pseudo</th>
+                <td>{{ hall_of_fame.pseudo }}</td>
+            </tr>
+            <tr>
+                <th>Score</th>
+                <td>{{ hall_of_fame.score }}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{ hall_of_fame.time }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ hall_of_fame.date ? hall_of_fame.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('hall_of_fame_index') }}">back to list</a>
+
+    <a href="{{ path('hall_of_fame_edit', {'id': hall_of_fame.id}) }}">edit</a>
+
+    {{ include('hall_of_fame/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit HallOfFame{% endblock %}
+
+{% block body %}
+    <h1>Edit HallOfFame</h1>
+
+    {{ include('hall_of_fame/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('hall_of_fame_index') }}">back to list</a>
+
+    {{ include('hall_of_fame/_delete_form.html.twig') }}
+{% endblock %}
